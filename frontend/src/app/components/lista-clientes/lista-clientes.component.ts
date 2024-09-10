@@ -21,24 +21,25 @@ export class ListaClientesComponent {
   cargarClientes(){
     this.clientesService.getClientes().subscribe(clientes => {
       this.clientes = clientes;
-      console.log(this.clientes);
+      // console.log(this.clientes);
     })
   }
 
-  openModal() {
-    this.router.navigate(["form"]);
+  agregarCliente() {
+    this.router.navigate(["agregar"]);
   }
 
-  editarCliente() {
-
+  editarCliente(cliente : any) {
+    console.log(cliente)
+    this.clientesService.updateCliente(cliente);
+    this.router.navigate(["editar", cliente.id]);
+    
   }
 
   eliminarCliente(id: string) {
-    console.log(id);
-    this.clientesService.deletecliente(id).subscribe(
+    this.clientesService.deleteCliente(id).subscribe(
       () => {
       console.log('Cliente eliminado con exito !');
-
       this.cargarClientes(); // Recargo los clientes luego del borrado
 
     })

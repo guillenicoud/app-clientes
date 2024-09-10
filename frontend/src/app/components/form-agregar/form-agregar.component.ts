@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ClientesService } from '../services/clientes.service';
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import { ClientesService } from '../../services/clientes.service';
+import { FormControl, FormGroup, Validators,  } from '@angular/forms';
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.css',
+  selector: 'app-form-agregar',
+  templateUrl: './form-agregar.component.html',
+  styleUrl: './form-agregar.component.css'
 })
-export class FormularioComponent {
+export class FormAgregarComponent {
   my_form: any;
 
   constructor(private clientesService: ClientesService, private router: Router) {}
@@ -31,7 +31,7 @@ export class FormularioComponent {
     if (this.my_form.valid) {
       const clientData = this.my_form.value;
 
-      this.clientesService.addCliente(clientData).subscribe(
+      this.clientesService.postCliente(clientData).subscribe(
         (response) => {
           console.log('Cliente Agregado Exitosamente ...', response);
           this.router.navigate(['/']); // Redirigir a la ruta principal, por ejemplo, '/'

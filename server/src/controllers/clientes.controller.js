@@ -1,5 +1,15 @@
 import { connection } from "../db/connection.js";
 
+export const getCliente = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const [result] = await connection.query('SELECT * FROM cliente WHERE id = ?', id);
+        res.json(result)    
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const getClientes = async (req, res) => {
 
     const [result] = await connection.query('SELECT * FROM cliente');

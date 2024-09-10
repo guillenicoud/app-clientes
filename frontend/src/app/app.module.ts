@@ -9,13 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // COMPONENTES
 import { ListaClientesComponent } from './components/lista-clientes/lista-clientes.component';
-import { FormularioComponent } from './formulario/formulario.component';
+import { FormAgregarComponent } from './components/form-agregar/form-agregar.component';
+import { FormEditarComponent } from './components/form-editar/form-editar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaClientesComponent,
-    FormularioComponent
+    FormAgregarComponent,
+    FormEditarComponent
   ],
   imports: [
     BrowserModule,

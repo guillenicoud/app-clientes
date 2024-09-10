@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Lista de clientes</h2>
-  <button class="btn btn-primary mb-3" (click)="openModal()">Agregar Cliente</button>
+  <button class="btn btn-primary mb-3" (click)="agregarCliente()">Agregar Cliente</button>
 
   <table class="table table-hover">
     <thead>
@@ -20,7 +20,7 @@
         <td>{{ cliente.phonenumber }}</td>
         <td>{{ cliente.mail }}</td>
         <td>
-          <button class="btn btn-success btn-sm" (click)="editarCliente()">Editar</button>
+          <button class="btn btn-success btn-sm" (click)="editarCliente(cliente)">Editar</button>
           <button class="btn btn-danger btn-sm" (click)="eliminarCliente(cliente.id)">Borrar</button>
         </td> <!-- Acciones para cada cliente -->
 

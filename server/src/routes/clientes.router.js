@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getClientes, postCliente, deleteCliente } from "../controllers/clientes.controller.js";
+import { getCliente, getClientes, postCliente, deleteCliente } from "../controllers/clientes.controller.js";
 
 const router = Router();
 
+router.get("/editar/:id", getCliente);
 router.get('/', getClientes);
 router.post('/', postCliente);
 router.delete('/:id', deleteCliente);
