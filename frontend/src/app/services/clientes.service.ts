@@ -17,12 +17,15 @@
     getCliente(id: string): Observable<any> {
       // const result = this.http.get(this.apiUrl+`/${id}`);
       console.log(id);
-      // return result;
+      const result = this.http.get(`${this.apiUrl}/editar/${id}`);
+
+
+      return result;
     }
 
     getClientes(): Observable<any[]> {
       const result = this.http.get<any[]>(this.apiUrl);
-      // console.log(result);
+      console.log(result);
       return result;
     }
 
@@ -42,7 +45,8 @@
     }
 
     updateCliente(id: string) {
-      console.log('Datos recibidos', id);
+      console.log('Datos recibidos en Servicio...', id);
+      return id;
     }
 
     deleteCliente(id: string): Observable<any> {

@@ -11,10 +11,10 @@ import { FormControl, FormGroup, Validators,  } from '@angular/forms';
 export class FormEditarComponent {
 
   my_form: any;
-  clienteId: string;
+  clienteId: string = '';
 
   constructor(private clientesService: ClientesService, private router: Router, private route: ActivatedRoute) {
-    console.log('Datos Recibidos',clientesService.updateCliente);
+    console.log('Datos',clientesService.updateCliente);
   }
 
   ngOnInit(): void {  
@@ -25,14 +25,18 @@ export class FormEditarComponent {
       mail: new FormControl(null, [Validators.required]),
     });
 
-    // Obtener ID del cliente de la ruta
-    this.clienteId = this.route.snapshot.paramMap.get('id') || '';
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.clienteId = id;
+        console.log(id);
 
-    // Cargar datos del cliente desde el servidor
-    this.clientesService.getCliente(this.clienteId).subscribe(cliente => {
-      this.my_form.patchValue(cliente);
+      }
     });
+
   }
+
+
 
   onSubmit() {
     // console.log  (this.my_form.value);

@@ -9,7 +9,7 @@ import { FormEditarComponent } from './components/form-editar/form-editar.compon
 const routes: Routes = [
   {path: "", component: ListaClientesComponent},
   {path: "agregar", component: FormAgregarComponent},
-  {path: "editar", component: FormEditarComponent}
+  {path: "editar/:id", component: FormEditarComponent}
 ];
 
 @NgModule({

@@ -30,10 +30,10 @@ export class ListaClientesComponent {
   }
 
   editarCliente(cliente : any) {
-    console.log(cliente)
-    this.clientesService.updateCliente(cliente);
-    this.router.navigate(["editar", cliente.id]);
+    console.log('DATOS COMPONENTE LISTA',cliente)
+    // this.clientesService.updateCliente(cliente);
     
+    const url = this.router.navigate(["editar", cliente.id]);
   }
 
   eliminarCliente(id: string) {
