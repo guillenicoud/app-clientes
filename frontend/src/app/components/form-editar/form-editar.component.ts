@@ -23,6 +23,8 @@ export class FormEditarComponent {
       address: new FormControl(null, [Validators.required]),
       phonenumber: new FormControl(null, [Validators.required]),
       mail: new FormControl(null, [Validators.required]),
+      diasVisita: new FormControl(''),
+      importe: new FormControl(null, [Validators.required]),
     });
 
     this.route.paramMap.subscribe(params => {
@@ -30,19 +32,21 @@ export class FormEditarComponent {
       if (id) {
         this.clienteId = id;
         console.log(id);
-
       }
     });
 
   }
 
-
+  testForm() {
+    console.log(this.my_form);
+  }
 
   onSubmit() {
     // console.log  (this.my_form.value);
     if (this.my_form.valid) {
       const clientData = this.my_form.value;
       console.log(clientData);
+      console.log(this.my_form);
     }
   }
 
