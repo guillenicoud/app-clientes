@@ -1,23 +1,26 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
 import { ClientesService } from '../../services/clientes.service';
-import { FormControl, FormGroup, Validators,  } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-editar',
   templateUrl: './form-editar.component.html',
-  styleUrl: './form-editar.component.css'
+  styleUrl: './form-editar.component.css',
 })
 export class FormEditarComponent {
-
   my_form: any;
   clienteId: string = '';
 
-  constructor(private clientesService: ClientesService, private router: Router, private route: ActivatedRoute) {
-    console.log('Datos',clientesService.updateCliente);
+  constructor(
+    private clientesService: ClientesService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    console.log('Datos', clientesService.updateCliente);
   }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.my_form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       address: new FormControl(null, [Validators.required]),
@@ -27,14 +30,13 @@ export class FormEditarComponent {
       importe: new FormControl(null, [Validators.required]),
     });
 
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
         this.clienteId = id;
         console.log(id);
       }
     });
-
   }
 
   testForm() {
