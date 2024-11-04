@@ -12,9 +12,31 @@ export const getCliente = async (req, res) => {
 
 export const getClientes = async (req, res) => {
 
-    const [result] = await connection.query('SELECT * FROM cliente');
-    console.log(result);
-    res.json(result);
+    try {
+        const [result] = await connection.query('SELECT * FROM cliente');
+        console.log(result);
+        res.json(result);    
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
+
+export const updateCliente = async (req, res) => {
+    
+    try {
+        const { id } = req.params;
+        // const { nombre } = req.body;
+        console.log(req.body);
+        res.json(req.body);
+    
+    } catch (error) {
+        console.log(error);    
+    }
+
+    // const [ result ] = await connection.query('UPDATE cliente SET nombre = ? WHERE id = ?', id, nombre)
+
+    // console.log(id, nomsbre);
 }
 
 export const postCliente = async (req, res) => {
